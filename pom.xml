@@ -1,0 +1,71 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>NSR_HybridFramework</groupId>
+	<artifactId>NSR_HybridFramework</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>NSR_HybridFramework</name>
+	<description>NSR_HybridFramework</description>
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-server -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-server</artifactId>
+			<version>4.0.0-alpha-2</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>4.8.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>7.7.1</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
+		<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>5.0.9</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>5.2.3</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>5.2.3</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml-schemas -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml-schemas</artifactId>
+			<version>4.1.2</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-scratchpad -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-scratchpad</artifactId>
+			<version>5.2.3</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+	</dependencies>
+</project>
