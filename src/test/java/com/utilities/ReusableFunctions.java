@@ -7,16 +7,19 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Properties;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 
 import org.openqa.selenium.StaleElementReferenceException;
@@ -26,6 +29,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.Color;
@@ -36,6 +41,7 @@ import org.testng.ITestResult;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
+import com.graphbuilder.math.func.RandFunction;
 import com.objectrepository.Locators;
 
 public class ReusableFunctions extends ExtentReport {
@@ -91,6 +97,11 @@ public class ReusableFunctions extends ExtentReport {
 		driver.navigate().refresh();
 	}
 
+	public void headlessBrowserLaunch() {
+		driver = new HtmlUnitDriver();
+		System.out.println("Headless Browser Launched");
+	}
+
 	@Parameters("browserName")
 	public void crossBrowser(@Optional("Chrome") String browserName) {
 		if (browserName.equalsIgnoreCase("Chrome")) {
@@ -110,10 +121,11 @@ public class ReusableFunctions extends ExtentReport {
 		driver.get(p.getProperty(URL));
 	}
 
-//	public void sendCaptchaToEditBox(By locator) {
-//		WebElement element = driver.findElement(locator);
-//		element.sendKeys(s.next());
-//	}
+	// Scanner method
+	public String scnnerByString() {
+		String value = s.next();
+		return value;
+	}
 
 	/*******
 	 * SendKeys
@@ -208,6 +220,23 @@ public class ReusableFunctions extends ExtentReport {
 		DateFormat df = new SimpleDateFormat("ddMMMyyy_HHmmss");
 		String timeTamp = df.format(d);
 		return timeTamp;
+	}
+
+	public void getSystemDateAndTime() {
+		Date d = new Date();
+		System.out.println(d);
+
+		System.out.println("****************");
+
+		long currentTimeInMillis = System.currentTimeMillis();
+		Date today = new Date(currentTimeInMillis);
+		System.out.println(today);
+
+		System.out.println("****************");
+
+		Calendar cal = Calendar.getInstance();
+		today = cal.getTime();
+		System.out.println(today);
 	}
 
 	// Get current system time
@@ -634,9 +663,38 @@ public class ReusableFunctions extends ExtentReport {
 		}
 	}
 
+	// Reading ToolTip text
+	public String tooltipText(By locator) {
+		WebElement element = driver.findElement(locator);
+		String tooltip = element.getAttribute("title");
+		return tooltip;
+	}
+
+	// Press Enter/Return Key in Selenium
+	public void pressEnter(By locator) {
+		WebElement element = driver.findElement(locator);
+		element.sendKeys(Keys.RETURN);
+	}
+
+	// Code snippet for Keyboard Actions
+	public void typeTextInCAPS(By locator, String TextToBePrint) {
+		WebElement textBoxElement = driver.findElement(locator);
+		Actions builder = new Actions(driver);
+		Action typeInCAPS = builder.keyDown(textBoxElement, Keys.SHIFT).sendKeys(textBoxElement, TextToBePrint)
+				.keyUp(textBoxElement, Keys.SHIFT).build();
+		typeInCAPS.perform();
+	}
+
 	public void randomNumberWithInRange(int minimum, int maximum) {
 		int randomNum = ThreadLocalRandom.current().nextInt(minimum, maximum + 1);
 		System.out.println(randomNum);
+	}
+
+	public int randomNumberWithRange(int maximum) {
+		Random r = new Random();
+		int randomNumber = r.nextInt(maximum);
+		System.out.println(randomNumber);
+		return randomNumber;
 	}
 
 	public void verifyWebElement(By locator) {
@@ -710,6 +768,17 @@ public class ReusableFunctions extends ExtentReport {
 	// Uploading file using Selenium-WebDriver
 	public static void uploadFile(By locator, String path) {
 		driver.findElement(locator).sendKeys(path);
+	}
+
+	// get All HyperLinks From HTML page
+	public static void getAllHyperLinksFromHTMLpage(String URL) {
+		driver.get(URL);
+		// Get list of web-elements with tagName - a
+		List<WebElement> allLinks = driver.findElements(By.tagName("a"));
+		// Traversing through the list and printing its text along with link address
+		for (WebElement link : allLinks) {
+			System.out.println(link.getText() + " - " + link.getAttribute("href"));
+		}
 	}
 
 }
