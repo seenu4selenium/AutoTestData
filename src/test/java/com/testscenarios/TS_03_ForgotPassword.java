@@ -13,7 +13,7 @@ import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 
-public class TS_01_sagsdgsf extends ReusableFunctions {
+public class TS_03_ForgotPassword extends ReusableFunctions {
 
 	@BeforeClass
 	@Parameters("browserName")
@@ -43,8 +43,6 @@ public class TS_01_sagsdgsf extends ReusableFunctions {
 	//develop the code from here
 	@Test
 	public void f() throws Exception {
-		
-		
 		
 	}
 
