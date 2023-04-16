@@ -13,7 +13,7 @@ import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 
-public class ClassTemplate2 extends ReusableFunctions {
+public class TS_01_sagsdgsf extends ReusableFunctions {
 
 	@BeforeClass
 	@Parameters("browserName")
@@ -39,10 +39,13 @@ public class ClassTemplate2 extends ReusableFunctions {
 		driver.quit();
 	}
 
+	
+	//develop the code from here
 	@Test
 	public void f() throws Exception {
-		test = extent.createTest("functionality1Test1");
-		getAllHyperLinksFromHTMLpage("https://www.google.com/");
+		
+		
+		
 	}
 
 }

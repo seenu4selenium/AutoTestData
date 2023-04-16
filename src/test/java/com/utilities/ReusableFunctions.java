@@ -213,7 +213,19 @@ public class ReusableFunctions extends ExtentReport {
 			System.out.println("Exception - " + e.getMessage());
 		}
 	}
-
+	
+	/***** Refresh the current screen *********/
+	
+	public void refreshCurrentPage() {
+//		//method-1
+//		driver.navigate().refresh();
+//		//method-2
+//		driver.navigate().to(driver.getCurrentUrl());
+//		//method-3
+		JavascriptExecutor executor = (JavascriptExecutor) driver;
+		executor.executeScript("history.go(0)");
+		
+	}
 	/*********** timestamp **********/
 	public String timestamp() {
 		Date d = new Date();

@@ -39,13 +39,11 @@ public class ClassTemplate extends ReusableFunctions {
 		driver.quit();
 	}
 
+	
+	//develop the code from here
 	@Test
 	public void f() throws Exception {
-		test = extent.createTest("functionality1Test1");
-		Assert.assertTrue(1 > 0);
-		test.log(Status.INFO, "Hello");
-		test.log(Status.FAIL, "Hello Fail");
-		test.log(Status.PASS, "Hello Pass");
+		
 	}
 
 }
